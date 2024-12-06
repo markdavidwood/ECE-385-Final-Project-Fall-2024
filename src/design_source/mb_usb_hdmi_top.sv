@@ -132,6 +132,8 @@ module mb_usb_hdmi_top (
         .TMDS_DATA_N(hdmi_tmds_data_n)
     );
 
+    logic [15:0] score;
+
     // Snake Module with game_over signal
     snake snake_instance (
         .Reset       (reset_ah),
@@ -142,7 +144,8 @@ module mb_usb_hdmi_top (
         .snake_length(snake_length),
         .foodX       (foodX),
         .foodY       (foodY),
-        .game_over   (game_over)
+        .game_over   (game_over),
+        .score       (score)
     );
 
     // Color Mapper Module   
@@ -155,6 +158,7 @@ module mb_usb_hdmi_top (
         .foodX      (foodX),
         .foodY      (foodY),
         .game_over  (game_over),
+        .score      (score),
         .Red        (red),
         .Green      (green),
         .Blue       (blue)
